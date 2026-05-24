@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: terrawalk
+    runtime: node
+    plan: free
+    buildCommand: cd client && npm ci && npm run build && cd ../server && npm ci && npx tsc
+    startCommand: cd server && node dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
