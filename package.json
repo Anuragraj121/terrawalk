@@ -2,7 +2,7 @@
   "name": "terrawalk",
   "private": true,
   "scripts": {
-    "build": "cd client && npm ci && npm run build && cd ../server && npm ci && npx tsc",
+    "build": "cd client && npm install --include=dev && npm run build && cd ../server && npm install --include=dev && npx tsc",
     "start": "cd server && node dist/index.js",
     "migrate": "cd server && npx tsx src/migrate.ts"
   }

@@ -3,11 +3,10 @@ services:
     name: terrawalk
     runtime: node
     plan: free
-    buildCommand: cd client && npm install && npm run build && cd ../server && npm install && npx tsc
-    startCommand: cd server && node dist/index.js
+    rootDir: .
+    buildCommand: cd client && npm install --include=dev && npm run build && cd ../server && npm install --include=dev && npx tsc
+    startCommand: node server/dist/index.js
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET

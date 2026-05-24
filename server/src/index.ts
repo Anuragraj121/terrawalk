@@ -21,8 +21,14 @@ const io = new Server(httpServer, { cors: { origin: '*' } })
 app.use(cors())
 app.use(express.json())
 
-app.get('/api/health', (_req, res) => {
-  res.json({ data: { status: 'ok' } })
+app.get('/api/health', async (_req, res) => {
+  try {
+    const { pool } = await import('./db.js')
+    await pool.query('SELECT 1')
+    res.json({ data: { status: 'ok', db: 'connected' } })
+  } catch (e: any) {
+    res.json({ data: { status: 'ok', db: 'disconnected', error: e.message } })
+  }
 })
 
 app.use('/api/auth', authRouter)
