@@ -25,9 +25,9 @@ app.get('/api/health', async (_req, res) => {
   try {
     const { pool } = await import('./db.js')
     await pool.query('SELECT 1')
-    res.json({ data: { status: 'ok', db: 'connected' } })
+    res.json({ data: { status: 'ok', db: 'connected', version: 'v2' } })
   } catch (e: any) {
-    res.json({ data: { status: 'ok', db: 'disconnected', error: e.message } })
+    res.json({ data: { status: 'ok', db: 'error', dbError: e.message, version: 'v2', dbUrl: process.env.DATABASE_URL ? 'set' : 'missing' } })
   }
 })
 
