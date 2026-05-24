@@ -5,7 +5,7 @@ import CreatePostModal from '../components/CreatePostModal'
 import { useLocationStore } from '../stores/locationStore'
 import { useAuthStore } from '../stores/authStore'
 import { connectSocket, getSocket, disconnectSocket } from '../utils/socket'
-import { getCellKey, getCellPolygon } from '../utils/grid'
+import { getCellPolygon } from '../utils/grid'
 
 const API = import.meta.env.VITE_API_URL
 

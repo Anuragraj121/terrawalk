@@ -92,7 +92,7 @@ function PodiumCard({ rank, entry, isMe, height }: { rank: number; entry: Leader
   return (
     <div className={`flex-1 flex flex-col items-center`}>
       <div className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-white mb-2 ring-2 ring-offset-2 ring-offset-slate-900 shadow-lg"
-        style={{ backgroundColor: entry.colour, ringColor: isMe ? '#10b981' : entry.colour }}>
+        style={{ backgroundColor: entry.colour }}>
         {entry.username[0].toUpperCase()}
       </div>
       <span className="text-xs font-semibold text-white truncate max-w-full">{entry.username}</span>
