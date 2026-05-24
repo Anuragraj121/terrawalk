@@ -69,11 +69,6 @@ export default function AuthScreen() {
           </button>
 
           <p className="text-center text-sm text-slate-400 pt-2">
-            {isLogin ? "Don't have an account? " : "Already have an account? "}
-            <button type="button" onClick={() => { setIsLogin(!isLogin); setError('') }}
-              className="text-emerald-400 font-semibold">
-              {isLogin ? 'Sign Up' : 'Sign In'}
-            </button>
           </p>
         </form>
       </div>
